@@ -300,11 +300,14 @@ function SavingsEstimator() {
             ))}
           </div>
 
-          {selected !== null && (
+          {selected !== null && BILL_BANDS[selected] && (
             <div className="animate-rise mt-8 grid gap-4 rounded-2xl bg-secondary/70 p-6 sm:grid-cols-3">
-              <EstimatorResult label="Recommended system" value={BILL_BANDS[selected].kw} />
-              <EstimatorResult label="Total subsidy" value={BILL_BANDS[selected].subsidy} />
-              <EstimatorResult label="Monthly savings" value={BILL_BANDS[selected].savings} />
+              <EstimatorResult label="Recommended system" value={BILL_BANDS[selected]!.kw} />
+              <EstimatorResult label="Total subsidy" value={BILL_BANDS[selected]!.subsidy} />
+              <EstimatorResult
+                label="Monthly savings"
+                value={BILL_BANDS[selected]!.savings}
+              />
               <p className="text-xs text-muted-foreground sm:col-span-3">
                 Approximate estimate. Your exact numbers depend on your roof and
                 your DISCOM slab — our engineer confirms everything in the free
